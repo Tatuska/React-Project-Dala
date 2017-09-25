@@ -46,7 +46,7 @@ class MainPage extends Component {
         })
 
     }
-
+    //
     //componentWillMount() {
     //    db.ref().on('value', (snapshot)=> {
     //        const dbHorse = snapshot.val();
@@ -68,9 +68,11 @@ class MainPage extends Component {
     //toDisplay method to show the list of horses
 
     Display(arrHorse) {
-
-
+//consoling the array so can see it
+console.log(arrHorse);
         const toDisplay = arrHorse.map((item)=> {
+            //can see it in console but the page tell me type
+            //console.log(item.value);
             const horseId = item.value.horseId;
             const newKey = item.key;
             let postArray = [];
@@ -79,7 +81,7 @@ class MainPage extends Component {
 
                 snapshot.forEach(item=> {
                     postArray.push(item.val().value);
-                    console.log('lilio',postArray);
+                    //console.log('lilio',postArray);
                 })
 
 
@@ -112,10 +114,16 @@ class MainPage extends Component {
             toDisplay = this.Display(arrHorse);
         }
         else {
-            const filteredHorse = [];
-            arrHorse.map((item)=> {
-                (item.value.type == type) ? filteredHorse.push(item) : '';
+            //const filteredHorse = [];
+         let filteredHorse=arrHorse.map((item)=> {
+                //(item.value.type == type) ? filteredHorse.push(item) : '';
+
+             if(item.value.type == type)
+             return item;
             })
+//consolgin the array and can see filtered array of objects
+//            console.log('filter is',filteredHorse);
+
             toDisplay = this.Display(filteredHorse);
         }
         this.setState({toDisplay: toDisplay});
@@ -142,7 +150,11 @@ class MainPage extends Component {
 
         }
 
+
+
+
         return (
+
             <div>
 
                 <Grid>

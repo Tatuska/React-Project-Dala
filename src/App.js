@@ -35,6 +35,7 @@ state={
             .onAuthStateChanged((user)=>{
                 if (user){
                     this.setState({user:user});
+                    //console.log(user)
 
                 }else{
                     this.setState({user:''})
@@ -45,7 +46,7 @@ state={
     }
 
   render() {
-      console.log(this.state.user);
+      //console.log(this.state.user);
       return (
               <div>
                   {this.state.user ? <MainPage user={this.state.user}></MainPage>: <FirstLogin ></FirstLogin>}

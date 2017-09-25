@@ -8,7 +8,6 @@ import { Grid, Form, FormControl, Navbar, Glyphicon,
 import loginForm from './loginForm.css'
 
 
-
 const db = firebase.database();
 
 class LoginForm extends Component {
@@ -31,10 +30,10 @@ class LoginForm extends Component {
             .createUserWithEmailAndPassword(this.state.username, this.state.password)
             .then((user)=> {
                 const newUser = {
-
+                    //uid: user.key,
                     email: user.email,
-                    posts:'',
-                    likes:''
+                    posts: '',
+                    likes: ''
                 }
                 db.ref('users').push(newUser)
             })

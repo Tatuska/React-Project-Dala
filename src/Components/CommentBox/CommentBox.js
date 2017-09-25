@@ -4,16 +4,22 @@ import { Grid, Form, FormControl, Navbar, Glyphicon,
     Nav, NavItem, Well, Row, Col, Button, ButtonToolbar,Thumbnail,FormGroup } from 'react-bootstrap';
 
 import firebase from '../../firebase';
-
+import PropTypes from 'prop-types';
 const db = firebase.database();
 export default class CommentBox extends Component {
-//TO FIXXX. placeholder be deleted after updating
+
     state = {
         value: '',
         key: '',
         placeholder: '...',
 
     }
+
+
+
+
+
+
 
 
     handleChange = (e)=> {
@@ -39,6 +45,8 @@ this.setState({value:''})
 
 
     render() {
+        const user = firebase.auth().currentUser;
+        //console.log('user is',user)
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
@@ -57,3 +65,6 @@ this.setState({value:''})
     }
 }
 
+CommentBox.contextTypes = {
+    user: PropTypes.object
+}
