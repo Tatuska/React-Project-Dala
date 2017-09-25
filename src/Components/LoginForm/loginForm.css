@@ -1,0 +1,31 @@
+.loginButton{
+    background-color: #e01313;
+border-color:    #e01313;
+    padding-left: 35px;
+    padding-right: 35px;
+
+display: block;
+    margin-left: auto;
+    margin-right: auto;
+margin-bottom: 30px;
+
+}
+
+.registerButton{
+    background-color:#000000;
+    border-color: #000000;
+    padding-left: 35px;
+    padding-right: 35px;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+
+}
+
+.br{
+    display: block;
+    margin: auto;
+    margin-right: auto;
+}

@@ -1,0 +1,23 @@
+.textStyle{
+    font-family: Courier;
+    color: #000000;
+    font-size: 1.4em;
+}
+
+.navbar-default .navbar-nav>li>a{
+    color: #000000;
+}
+#profile{
+
+}
+
+span.caret{
+    display: none;
+}
+
+.menuDrop{
+    -webkit-text-stroke: 1px white;
+}
+.menuItem{
+    -webkit-text-stroke: 0px white;
+}
