@@ -24,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="firstLogin.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="firstLogin.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/firstLogin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6361149">
-              <caret line="33" column="18" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -38,24 +38,34 @@
         <entry file="file://$PROJECT_DIR$/src/Components/NavigationBar/NavigationBar.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="33" column="39" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="39" />
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="52" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainPage.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainPage.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Components/MainPage/MainPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-70.55556">
-              <caret line="129" column="0" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.5525568">
+              <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
               <folding>
-                <marker date="1506338429000" expanded="true" signature="4936:5414" placeholder="..." />
-                <marker date="1506338429000" expanded="true" signature="4960:5263" placeholder="..." />
-                <marker date="1506338429000" expanded="true" signature="5008:5237" placeholder="..." />
-                <marker date="1506338429000" expanded="false" signature="5083:5087" placeholder="..." />
-                <marker date="1506338429000" expanded="true" signature="5128:5203" placeholder="..." />
+                <marker date="1506354781000" expanded="true" signature="4237:4715" placeholder="..." />
+                <marker date="1506354781000" expanded="true" signature="4261:4564" placeholder="..." />
+                <marker date="1506354781000" expanded="true" signature="4309:4538" placeholder="..." />
+                <marker date="1506354781000" expanded="false" signature="4384:4388" placeholder="..." />
+                <marker date="1506354781000" expanded="true" signature="4429:4504" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShowComments.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Components/ShowComments.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -95,8 +105,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -136,6 +146,7 @@
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/Components/file.json" />
         <option value="$PROJECT_DIR$/src/Components/CommentBox/CommentBox.js" />
+        <option value="$PROJECT_DIR$/src/Components/ShowComments.js" />
         <option value="$PROJECT_DIR$/src/Components/MainPage/MainPage.js" />
       </list>
     </option>
@@ -148,8 +159,8 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="355" />
-    <option name="y" value="98" />
+    <option name="x" value="375" />
+    <option name="y" value="130" />
     <option name="width" value="1062" />
     <option name="height" value="828" />
   </component>
@@ -395,7 +406,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="355" y="98" width="1062" height="828" extended-state="0" />
+    <frame x="375" y="130" width="1062" height="828" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -435,20 +446,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Components/MainPage/MainPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1506338429000" expanded="true" signature="4936:5414" placeholder="..." />
-            <marker date="1506338429000" expanded="true" signature="4960:5263" placeholder="..." />
-            <marker date="1506338429000" expanded="true" signature="5008:5237" placeholder="..." />
-            <marker date="1506338429000" expanded="false" signature="5083:5087" placeholder="..." />
-            <marker date="1506338429000" expanded="true" signature="5128:5203" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/file.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -494,11 +491,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="54" column="42" selection-start-line="54" selection-start-column="42" selection-end-line="54" selection-end-column="42" />
           <folding>
-            <marker date="1506338429000" expanded="true" signature="4936:5414" placeholder="..." />
-            <marker date="1506338429000" expanded="true" signature="4960:5263" placeholder="..." />
-            <marker date="1506338429000" expanded="true" signature="5008:5237" placeholder="..." />
-            <marker date="1506338429000" expanded="false" signature="5083:5087" placeholder="..." />
-            <marker date="1506338429000" expanded="true" signature="5128:5203" placeholder="..." />
+            <marker date="1506354781000" expanded="true" signature="4237:4715" placeholder="..." />
+            <marker date="1506354781000" expanded="true" signature="4261:4564" placeholder="..." />
+            <marker date="1506354781000" expanded="true" signature="4309:4538" placeholder="..." />
+            <marker date="1506354781000" expanded="false" signature="4384:4388" placeholder="..." />
+            <marker date="1506354781000" expanded="true" signature="4429:4504" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -795,17 +792,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/MainPage/MainPage.js">
+    <entry file="file://$PROJECT_DIR$/src/Components/CommentBox/CommentBox.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-70.55556">
-          <caret line="129" column="0" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
-          <folding>
-            <marker date="1506338429000" expanded="true" signature="4936:5414" placeholder="..." />
-            <marker date="1506338429000" expanded="true" signature="4960:5263" placeholder="..." />
-            <marker date="1506338429000" expanded="true" signature="5008:5237" placeholder="..." />
-            <marker date="1506338429000" expanded="false" signature="5083:5087" placeholder="..." />
-            <marker date="1506338429000" expanded="true" signature="5128:5203" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/firstLogin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -817,27 +816,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/CommentBox/CommentBox.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/NavigationBar/NavigationBar.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="39" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="39" />
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="52" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/firstLogin.js">
+    <entry file="file://$PROJECT_DIR$/src/Components/ShowComments.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6361149">
-          <caret line="33" column="18" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/MainPage/MainPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5525568">
+          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <folding>
+            <marker date="1506354781000" expanded="true" signature="4237:4715" placeholder="..." />
+            <marker date="1506354781000" expanded="true" signature="4261:4564" placeholder="..." />
+            <marker date="1506354781000" expanded="true" signature="4309:4538" placeholder="..." />
+            <marker date="1506354781000" expanded="false" signature="4384:4388" placeholder="..." />
+            <marker date="1506354781000" expanded="true" signature="4429:4504" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

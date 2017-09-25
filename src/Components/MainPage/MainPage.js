@@ -12,7 +12,7 @@ import CommentBox from '../CommentBox/CommentBox'
 
 import NavigationBar from './../NavigationBar/NavigationBar';
 import LoadGallery from './../LoadGallery/LoadGallery'
-
+import ShowComments from './../ShowComments'
 
 const db = firebase.database();
 
@@ -23,7 +23,7 @@ class MainPage extends Component {
         arrHorse: '',//db trarnsferred to arrrray
         toDisplay: '',//db alrerady rerady to be displayed
         postArray: '',//the array of the the element'
-        local: ''//saving a comment for the current horse
+        commentList: ''//saving a comment for the current horse
     }
 
     componentDidMount() {
@@ -47,21 +47,25 @@ class MainPage extends Component {
 
     }
 
-    componentWillMount() {
-        db.ref().on('value', (snapshot)=> {
-            const dbHorse = snapshot.val();
+    //componentWillMount() {
+    //    db.ref().on('value', (snapshot)=> {
+    //        const dbHorse = snapshot.val();
+    //
+    //        this.setState({dbHorse: dbHorse});
+    //
+    //        const arrHorse = [];
+    //        for (var item in dbHorse.Horses) {
+    //            arrHorse.push({key: item, value: dbHorse.Horses[item]});
+    //        }
+    //
+    //        this.setState({arrHorse: arrHorse});
+    //        const toDisplay = this.Display(arrHorse);
+    //        this.setState({toDisplay: toDisplay});
+    //    })
+    //}
 
-            this.setState({dbHorse: dbHorse});
-
-            let arrHorse = [];
-            snapshot.forEach((item=> {
-                arrHorse.push(item.val())
-            }))
-
-            this.setState({arrHorse: arrHorse});
-        })
-    }
-
+//FOR NOW THE QUESTION IS THAT AFTER FILTERING IT IS NOT SHOWING THE COMMENTS:BUT I AM USING THE SAME
+    //toDisplay method to show the list of horses
 
     Display(arrHorse) {
 
@@ -69,69 +73,36 @@ class MainPage extends Component {
         const toDisplay = arrHorse.map((item)=> {
             const horseId = item.value.horseId;
             const newKey = item.key;
+            let postArray = [];
 
-// like this the list of comments are showing but not the first time. only after updating
-            //db.ref(`Horses/${newKey}/posts`).on('value', (snapshot)=> {
-            //
-            //
-            //    snapshot.forEach(item=> {
-            //        postArray.push(item.val().value);
-            //        //console.log('lilio',postArray);
-            //    })
-            //
-            //
-            //})
-            //const zibil = postArray.map((item)=>
-            //        <li>{item}</li>
-            //);
-            //
-            //this.setState({local: zibil})
-            const postArray=this.state.postArray;
-            console.log(postArray);
-            //const commentList = postArray.map((item)=>
-            //        <li>{item}</li>
-            //);
+            db.ref(`Horses/${newKey}/posts`).on('value', (snapshot)=> {
+
+                snapshot.forEach(item=> {
+                    postArray.push(item.val().value);
+                    console.log('lilio',postArray);
+                })
+
+
+            })
+
+            this.setState({postArray: postArray})
+            //console.log(postArray);
 
             return ( <Col xs={6} md={3}>
 
                 <Thumbnail href="#" alt="171x180" src={item.value.image}/>
 
                 <CommentBox horseId={item.value.horseId} newKey={item.key} arrHorse={this.state.arrHorse}></CommentBox>
+
                 <p>{item.value.type}</p>
 
-                <button onClick={()=>this.showPost({newKey})}>Show Comments</button>
-                <ul></ul>
+                <ShowComments postArray={this.state.postArray}></ShowComments>
             </Col>)
         })
         return toDisplay;
 
     }
 
-showPost=(newKey)=>{
-    console.log(newKey)
-    //geting the key for the horse
-   const key= newKey.newKey;
-    console.log(key);
-
-    let postArray=[];//for keeping the array of comments for the current horse
-
-    db.ref(`Horses/${key}/posts`).on('value', (snapshot)=> {
-//console.log(snapshot.val())
-
-        snapshot.forEach(item=> {
-            postArray.push(item.val().value);
-            //console.log('lilio',postArray);
-        })
-
-    })
-
-    console.log(postArray);//I can see that the comments are stored in the array
-
-
-    //THIS IS NOT WORKING I DO KNOW WHY
-    this.setState({postArray:postArray})
-    console.log(this.state.postArray);
-}
 
 //filteirng the horrse depends of the type probably can be used the filter method of js
     filter = (type)=> {
