@@ -34,9 +34,9 @@ export default class NavigationBar extends Component {
                 <NavItem  onClick={()=>this.props.filter('all')} >All Horses</NavItem>
                 <NavDropdown  title={navDropdownTitle} className={' menuDrop pull-right '}>
                     <MenuItem onClick={this.props.profile} className={'menuItem '}>Profile</MenuItem>
-                    <MenuItem onClick={()=>this.props.filter('all')} className={'menuItem'}>Posts</MenuItem>
-                    <MenuItem onClick={()=>this.props.filter('all')} className={'menuItem'}>Likes</MenuItem>
-                    <MenuItem onClick={()=>this.props.filter('all')} onClick={this.signOut} className={'menuItem'}>Sign Out</MenuItem>
+                    <MenuItem onClick={this.props.showPosts} className={'menuItem'}>Posts</MenuItem>
+                    <MenuItem onClick={this.props.showLikes} className={'menuItem'}>Likes</MenuItem>
+                    <MenuItem  onClick={this.signOut} className={'menuItem'}>Sign Out</MenuItem>
 
                 </NavDropdown>
             </Nav>

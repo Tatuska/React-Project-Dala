@@ -17,6 +17,7 @@ class LoginForm extends Component {
         password: '',
         user: '',
         errorText: ''
+
     }
 
 

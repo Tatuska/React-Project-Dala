@@ -11,8 +11,9 @@ import LoginForm from './../LoginForm/LoginForm';
 import CommentBox from '../CommentBox/CommentBox'
 
 import NavigationBar from './../NavigationBar/NavigationBar';
-import LoadGallery from './../LoadGallery/LoadGallery'
+import LoadGallery from './../LoadGallery/LoadGallery';
 import ShowComments from './../ShowComments'
+import LikeButton from './../LikeButton'
 
 const db = firebase.database();
 
@@ -46,31 +47,32 @@ class MainPage extends Component {
         })
 
     }
-    //
-    //componentWillMount() {
-    //    db.ref().on('value', (snapshot)=> {
-    //        const dbHorse = snapshot.val();
-    //
-    //        this.setState({dbHorse: dbHorse});
-    //
-    //        const arrHorse = [];
-    //        for (var item in dbHorse.Horses) {
-    //            arrHorse.push({key: item, value: dbHorse.Horses[item]});
-    //        }
-    //
-    //        this.setState({arrHorse: arrHorse});
-    //        const toDisplay = this.Display(arrHorse);
-    //        this.setState({toDisplay: toDisplay});
-    //    })
-    //}
+
+    componentWillMount() {
+        db.ref().on('value', (snapshot)=> {
+            const dbHorse = snapshot.val();
+
+            this.setState({dbHorse: dbHorse});
+
+            const arrHorse = [];
+            for (var item in dbHorse.Horses) {
+                arrHorse.push({key: item, value: dbHorse.Horses[item]});
+            }
+
+            this.setState({arrHorse: arrHorse});
+            const toDisplay = this.Display(arrHorse);
+            this.setState({toDisplay: toDisplay});
+        })
+    }
 
 //FOR NOW THE QUESTION IS THAT AFTER FILTERING IT IS NOT SHOWING THE COMMENTS:BUT I AM USING THE SAME
     //toDisplay method to show the list of horses
 
     Display(arrHorse) {
 //consoling the array so can see it
-console.log(arrHorse);
+        console.log(arrHorse);
         const toDisplay = arrHorse.map((item)=> {
+
             //can see it in console but the page tell me type
             //console.log(item.value);
             const horseId = item.value.horseId;
@@ -78,10 +80,11 @@ console.log(arrHorse);
             let postArray = [];
 
             db.ref(`Horses/${newKey}/posts`).on('value', (snapshot)=> {
-
+//console.log(snapshot.val());
                 snapshot.forEach(item=> {
+                    //console.log(item.val());
                     postArray.push(item.val().value);
-                    //console.log('lilio',postArray);
+                    //console.log('lilio', postArray);
                 })
 
 
@@ -92,13 +95,15 @@ console.log(arrHorse);
 
             return ( <Col xs={6} md={3}>
 
-                <Thumbnail href="#" alt="171x180" src={item.value.image}/>
+                <Thumbnail href="#" alt="horses" src={item.value.image}/>
 
-                <CommentBox horseId={item.value.horseId} newKey={item.key} arrHorse={this.state.arrHorse}></CommentBox>
+                <CommentBox horseId={item.value.horseId} newKey={item.key} arrHorse={this.state.arrHorse}
+                            name={item.value.name}></CommentBox>
 
                 <p>{item.value.type}</p>
 
                 <ShowComments postArray={this.state.postArray}></ShowComments>
+                <LikeButton newKey={item.key} horseId={item.value.horseId} name={item.value.name}></LikeButton>
             </Col>)
         })
         return toDisplay;
@@ -114,15 +119,10 @@ console.log(arrHorse);
             toDisplay = this.Display(arrHorse);
         }
         else {
-            //const filteredHorse = [];
-         let filteredHorse=arrHorse.map((item)=> {
-                //(item.value.type == type) ? filteredHorse.push(item) : '';
-
-             if(item.value.type == type)
-             return item;
+            const filteredHorse = [];
+            arrHorse.map((item)=> {
+                (item.value.type == type) ? filteredHorse.push(item) : '';
             })
-//consolgin the array and can see filtered array of objects
-//            console.log('filter is',filteredHorse);
 
             toDisplay = this.Display(filteredHorse);
         }
@@ -142,6 +142,95 @@ console.log(arrHorse);
         this.setState({toDisplay: show});
     }
 
+    showPosts=()=>{
+
+        const user = firebase.auth().currentUser;
+        const currentEmail = user.email;
+        let userKey;
+        //let list='';
+        let array=[];
+        //console.log('lalaä',user.key);
+        db.ref(`users`).on('value', (snapshot)=> {
+
+            //console.log(snapshot.val());
+            snapshot.forEach(item=> {
+
+                if(item.val().email==currentEmail){
+                   userKey = item.key;
+                }
+
+
+            })
+
+
+        })
+        db.ref(`users/${userKey}/posts`).on('value', (snapshot)=> {
+
+            //console.log(snapshot.val());
+            snapshot.forEach(item=> {
+
+
+array.push(item.val());
+            })
+
+
+        })
+        console.log(array);
+        const list=array.map((item)=>
+            <li>{item.HorseId}{item.horseName}{item.posts}{item.date}</li>
+        );
+
+        const show = <Col xs={6} md={3}>
+            {currentEmail}
+            <ul>{list}</ul>
+        </Col>;
+        this.setState({toDisplay: show});
+    }
+
+    showLikes=()=>{
+        const user = firebase.auth().currentUser;
+        const currentEmail = user.email;
+        let userKey;
+        //let list='';
+        let array=[];
+        //console.log('lalaä',user.key);
+        db.ref(`users`).on('value', (snapshot)=> {
+
+            //console.log(snapshot.val());
+            snapshot.forEach(item=> {
+
+                if(item.val().email==currentEmail){
+                    userKey = item.key;
+                }
+
+
+            })
+
+
+        })
+        db.ref(`users/${userKey}/likes`).on('value', (snapshot)=> {
+
+            //console.log(snapshot.val());
+            snapshot.forEach(item=> {
+
+
+                array.push(item.val());
+            })
+
+
+        })
+        console.log(array);
+        const list=array.map((item)=>
+                <li>{item.HorseId}{item.horseName}{item.date}</li>
+        );
+
+        const show = <Col xs={6} md={3}>
+            {currentEmail}
+            <ul>{list}</ul>
+        </Col>;
+        this.setState({toDisplay: show});
+}
+
     render() {
         const st = {
             display: 'block',
@@ -149,8 +238,6 @@ console.log(arrHorse);
             marginRight: 'auto',
 
         }
-
-
 
 
         return (
@@ -166,7 +253,7 @@ console.log(arrHorse);
 
 
                 </Grid>
-                <NavigationBar filter={this.filter} profile={this.profile}></NavigationBar>
+                <NavigationBar filter={this.filter} profile={this.profile} showPosts={this.showPosts} showLikes={this.showLikes}></NavigationBar>
                 {this.state.toDisplay}
 
             </div>

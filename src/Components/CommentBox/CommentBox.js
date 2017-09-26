@@ -16,12 +16,6 @@ export default class CommentBox extends Component {
     }
 
 
-
-
-
-
-
-
     handleChange = (e)=> {
         e.preventDefault();
         this.setState({value: e.target.value});
@@ -33,20 +27,49 @@ export default class CommentBox extends Component {
     }
 
     handleSubmit = (e)=> {
+        const horseName = this.props.name;
         const item = this.props.horseId;
         const key = this.props.newKey;
+        let userKey;
+        const user = firebase.auth().currentUser;
+
+        const currentEmail = user.email;
         e.preventDefault();
-        db.ref(`Horses/${key}/posts`).push({value: this.state.value});
+        db.ref(`Horses/${key}/posts`).push({
+            value: this.state.value,
+            date: (new Date()).toLocaleString(),
+            author: currentEmail
+        });
 
-this.setState({value:''})
+
+        const keys = user.key;
+
+        db.ref(`users`).on('value', (snapshot)=> {
+            console.log(snapshot.val());
+            snapshot.forEach(item=> {
+if(item.val().email==currentEmail){
+                userKey = item.key;
+}
+                //let email = snapshot.val()[userKey].email;
 
 
+            })
+
+
+        })
+        db.ref(`users/${userKey}/posts`).push({
+            posts: this.state.value,
+            horseName: horseName,
+            HorseId: item,
+            date: (new Date()).toLocaleString()
+        })
+
+        this.setState({value: ''})
     }
 
 
     render() {
-        const user = firebase.auth().currentUser;
-        //console.log('user is',user)
+
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
