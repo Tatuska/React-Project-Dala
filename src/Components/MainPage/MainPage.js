@@ -23,8 +23,8 @@ class MainPage extends Component {
         dbHorse: '',//horrse db
         arrHorse: '',//db trarnsferred to arrrray
         toDisplay: '',//db alrerady rerady to be displayed
-        postArray: '',//the array of the the element'
-        commentList: ''//saving a comment for the current horse
+        postArray: ''//the array of the the element'
+
     }
 
     componentDidMount() {
@@ -80,18 +80,21 @@ class MainPage extends Component {
             let postArray = [];
 
             db.ref(`Horses/${newKey}/posts`).on('value', (snapshot)=> {
-//console.log(snapshot.val());
+
                 snapshot.forEach(item=> {
-                    //console.log(item.val());
+
                     postArray.push(item.val().value);
-                    //console.log('lilio', postArray);
+
                 })
 
 
             })
 
             this.setState({postArray: postArray})
-            //console.log(postArray);
+            //here is the postArray is perfectly working in the beginning.
+            //but when I am doing the filtering it is not working. postArray is correct but my this.state.postArray is empty
+            console.log(this.state.postArray);
+            console.log(postArray);
 
             return ( <Col xs={6} md={3}>
 
@@ -137,7 +140,7 @@ class MainPage extends Component {
             <p>{user.email}</p>
 
             <p>{user.uid}</p>
-            /*need to fix and add prrofile details*/
+
         </Col>;
         this.setState({toDisplay: show});
     }

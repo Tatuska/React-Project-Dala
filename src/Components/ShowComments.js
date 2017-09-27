@@ -7,6 +7,7 @@ export default class ShowComments extends Component{
 
 render(){
     const postArray=this.props.postArray;
+    console.log(postArray);
     const commentList = postArray.map((item)=>
             <li>{item}</li>
     );
